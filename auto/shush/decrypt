@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+cd $(dirname $0)/../..
+
+AWS_DEFAULT_REGION=ap-southeast-1 \
+shush decrypt \
+  --print-key \
+  < ./auto/shush/secret.encrypted \
+  # > ./auto/shush/secret.txt

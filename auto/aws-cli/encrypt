@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+cd $(dirname $0)/../..
+
+aws kms encrypt \
+  --key-id 36169f57-db54-4c1f-b131-6809f4234d69 \
+  --plaintext ./auto/aws-cli/secrets.json \
+  --output text \
+  --query CiphertextBlob | base64 --decode \
+  > ./auto/aws-cli/secrets.encrypted.json

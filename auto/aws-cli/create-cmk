@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+cd $(dirname $0)/../..
+
+aws kms create-key --description "AWS training week3 - kms practice"
