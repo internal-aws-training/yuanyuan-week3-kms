@@ -3,7 +3,7 @@ set -euo pipefail
 cd $(dirname $0)/../..
 
 aws kms decrypt \
-  --ciphertext-blob ./auto/aws-cli/secrets.encrypted.json \
+  --ciphertext-blob fileb://auto/aws-cli/secrets.encrypted.json \
   --output text \
 	--query Plaintext | base64 --decode \
 	> ./auto/aws-cli/secrets.decrypted.json
